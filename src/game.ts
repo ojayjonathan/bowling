@@ -11,6 +11,14 @@ class Game {
             this.frames.push(new Frame(i + 1));
         }
     }
+   
+    /**
+     * 
+     * @returns current frame index 0-9
+     */
+    getCurrentFrameIndex(){
+        return this.currentFrameIndex
+    }
 
     roll(pins: number) {
         if (this.isComplete()) {
@@ -81,7 +89,6 @@ class Game {
     }
 }
 
-let game = new Game()
 
 
 export default Game;
