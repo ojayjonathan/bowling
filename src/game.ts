@@ -35,10 +35,7 @@ class Game {
     }
     Score() {
         let scores = this.scoreCalculator.computeScore(this.frames);
-        return scores.reduce(
-            (prevScore, curr) => prevScore + (curr.frameScore ?? 0),
-            0
-        );
+        return scores[9]?.frameScore ?? 0
     }
     getFrames(): Frame[] {
         return this.frames;
@@ -63,9 +60,8 @@ class Game {
         console.log(separator);
 
         for (const score of scores) {
-            console.log(separator);
             console.log(
-                `|${this.centerText(this.currentFrameIndex + 1, 12)}|${this.centerText(score.frameScore ?? "", 10)}|`
+                `|${this.centerText(score.frameNumber + 1, 12)}|${this.centerText(score.frameScore ?? "", 10)}|`
             );
             console.log(separator);
         }
